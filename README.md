@@ -1,4 +1,4 @@
-<img width="1206" alt="image" src="https://github.com/shuowang26/renal-mass-ai/assets/">
+<img width="1206" alt="image" src="https://github.com/shuowang26/renal-mass-ai/blob/main/assets/design.png">
 
 
 # Renal-Mass-AI
