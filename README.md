@@ -4,7 +4,7 @@
 # Renal-Mass-AI
 The official codes for **Artificial Intelligence Links Preoperative CT Images to Pathologic Features, Survival Outcomes and Biological Behaviors of Renal Masses Using Real-World Data**.
 
-The codes are being packed and uploaded here. Feb 19th, 2024.
+The codes are being packed and will be synchronised here by 3 March 2024.
 
 ## Dependencies
 
