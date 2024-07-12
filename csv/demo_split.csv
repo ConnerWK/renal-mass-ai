@@ -1,0 +1,6 @@
+path,class,split
+./demo/npy/P00001,1,train
+./demo/npy/P00002,1,val
+./demo/npy/P00003,2,test1
+./demo/npy/P00004,2,test2
+./demo/npy/P00005,3,test3
