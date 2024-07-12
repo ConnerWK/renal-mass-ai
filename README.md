@@ -1,6 +1,3 @@
-[//]: # (<img width="1206" alt="image" src="https://github.com/shuowang26/renal-mass-ai/blob/main/assets/design.png">)
-
-
 # Renal-Mass-AI
 This repo contains the scripts for the segmentation, pre-processing, radiomics and deep learning-based prediction of pathologic outcomes using pre-operative multi-phase CT, as reported in the paper **Artificial Intelligence Links Preoperative CT Images to Pathologic Features, Survival Outcomes and Biological Behaviors of Renal Masses Using Real-World Data**.
 
@@ -10,7 +7,6 @@ This repo contains the scripts for the segmentation, pre-processing, radiomics a
 
 ## Dependencies
 To install Python dependencies:
-
 ```
 pip install -r requirements.txt
 ```
@@ -37,12 +33,22 @@ Please see the [radiomics](./radiomics) folder for implementation details.
 
 ## Deep learning models
 We developed a multi-view CNN with an intermediate feature fusion strategy. The image features were extracted with ResNet18 backbone and fused to make downstream task. The architecture was the same for the malignancy and invasiveness prediction tasks. 
+Please see the [DL](./DL) folder for implementation details. 
 
-Please see the [DL](./DL) folder for training details. 
+train:
+```
+python ./DL/train_malignant_classification_NAV.py --epoch 200 --tag test --lr 1e-5
+python ./DL/train_invasiveness_classification_NAV.py --epoch 200 --tag test --lr 1e-5
+```
 
+test:
+```
+python ./DL/test_malignant_classification_NAV.py
+python ./DL/test_invasiveness_classification_NAV.py
+```
 
 ## Citation
-Updating soon.
+Available soon.
 
-If you have any question, please feel free to contact.
+If you have any question, please feel free to contact (shuowang@fudan.edu.cn).
 

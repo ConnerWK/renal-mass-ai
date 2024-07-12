@@ -85,9 +85,11 @@ test_proba = np.stack(test_predict_prob, axis=2).mean(axis=2)
 pred = test_proba[:, 1]
 
 # construct dataframe and save prediction results
-df_pred = pd.DataFrame({'pid': pid_list})
-df_pred['radiomics_malignant'] = np.nan
-df_pred['GT'] = df['class']
-df_pred['split'] = df['split']
-df_pred['radiomics_malignant'][test_ind] = pred
+indices = test_ind[test_ind].index.tolist()
+df_pred = pd.DataFrame({
+    'pid': [pid_list[i] for i in indices],  # Correctly index pid_list
+    'radiomics_invasive': pred,
+    'GT': df['class'][test_ind]
+})
+
 df_pred.to_excel('radiomics/res-12.xlsx')

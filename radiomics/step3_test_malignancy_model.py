@@ -25,7 +25,7 @@ cv_results = joblib.load('radiomics/trained_models/model01_cv_results.pkl')
 selected_features = joblib.load('radiomics/trained_models/model01_selected_features.pkl')
 selected_index = joblib.load('radiomics/trained_models/model01_selected_index.pkl')
 
-csv_path = 'radiomics/demo_split.csv'
+csv_path = 'csv/demo_split.csv'
 df = pd.read_csv(csv_path)  # class 0, 1, 2
 
 radiomics_feat = pd.read_csv("radiomics/radiomics_feat.csv", index_col=0)
@@ -86,9 +86,11 @@ test_proba = np.stack(test_predict_prob, axis=2).mean(axis=2)
 pred = test_proba[:, 1]
 
 # construct dataframe and save prediction results
-df_pred = pd.DataFrame({'pid': pid_list})
-df_pred['radiomics_malignant'] = np.nan
-df_pred['GT'] = df['class']
-df_pred['split'] = df['split']
-df_pred['radiomics_malignant'][test_ind] = pred
-df_pred.to_excel('radiomics/resr-01.xlsx')
+indices = test_ind[test_ind].index.tolist()
+df_pred = pd.DataFrame({
+    'pid': [pid_list[i] for i in indices],  # Correctly index pid_list
+    'radiomics_malignant': pred,
+    'GT': df['class'][test_ind]
+})
+
+df_pred.to_excel('radiomics/res-01.xlsx')

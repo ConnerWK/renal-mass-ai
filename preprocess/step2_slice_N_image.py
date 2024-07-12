@@ -24,7 +24,7 @@ from utils import crop_3Dimage
 # set the folder of *.nii.gz images (N.nii.gz, A.nii.gz, V.nii.gz)
 nii_folder = './demo/img'
 dest_folder = './demo/npy'
-df = pd.read_csv('./csv/demo_pid_meta.csv', dtype={'pid': str})
+df = pd.read_csv('./csv/demo_split.csv', dtype={'pid': str})
 pid_list = df['pid'].to_list()
 
 # set phase
